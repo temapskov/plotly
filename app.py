@@ -1,12 +1,12 @@
+import pandas as pd
 import plotly.express as px
 import plotly.graph_objects as go
 from plotly.subplots import make_subplots
-import pandas as pd
 
-df = pd.read_csv("test.txt", sep=",", header=None, 
+
+df = pd.read_csv("foo.txt", sep=",", header=None, 
                  names=["date", "plot", "name", "val"])
 df1 = df.groupby("plot", as_index=False)
-df2 = df.groupby("plot", as_index=False).get_group(0)
 
 config = dict(
     {'scrollZoom': True,
