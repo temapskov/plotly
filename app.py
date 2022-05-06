@@ -8,6 +8,12 @@ df = pd.read_csv("test.txt", sep=",", header=None,
 df1 = df.groupby("plot", as_index=False)
 df2 = df.groupby("plot", as_index=False).get_group(0)
 
+config = dict(
+    {'scrollZoom': True,
+     'modeBarButtonsToRemove': ['zoom', 'pan'],
+     'displaylogo': False
+    })
+
 i = 0
 fig = make_subplots(rows=len(df1), cols=2)
 for group in df1:
@@ -21,5 +27,6 @@ for group in df1:
              row=i+1, col=1)
     i =+ 1
 
+fig.update_layout(xaxis = {'type': 'date'})
 
-fig.show()
+fig.show(config=config)
